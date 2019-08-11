@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:4200/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>WeatherApp</title>
+  <!--<base href="/">--><base href=".">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="http://localhost:4200/favicon.ico">
+<style type="text/css">/* You can add global styles to this file, and also import other style files */
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9DOlxcU3VtYVxcQW5ndWxhclxcV2VhdGhlckFwcC9zcmNcXHN0eWxlcy5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLCtFQUErRSIsImZpbGUiOiJzcmMvc3R5bGVzLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBZb3UgY2FuIGFkZCBnbG9iYWwgc3R5bGVzIHRvIHRoaXMgZmlsZSwgYW5kIGFsc28gaW1wb3J0IG90aGVyIHN0eWxlIGZpbGVzICovXG4iXX0= */</style><style>
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyJ9 */</style><style>.main-title[_ngcontent-c1] {
+  text-align: left;
+  color: #505050;
+  font-family: sans-serif;
+  font-weight: bold; }
+
+.form-width[_ngcontent-c1] {
+  margin: 0 auto; }
+
+.form-group[_ngcontent-c1] {
+  display: inline;
+  margin-bottom: 1%;
+  margin-top: 1%;
+  text-align: center;
+  margin-right: 1%; }
+
+.form-control[_ngcontent-c1] {
+  padding: 6px 12px;
+  background-color: #fff !important;
+  border-color: #e96e50;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out; }
+
+.title[_ngcontent-c1] {
+  text-align: center;
+  color: #e96e50;
+  font-family: sans-serif;
+  font-weight: bold;
+  margin-bottom: 30px; }
+
+.table-style[_ngcontent-c1] {
+  width: 100%;
+  text-align: center; }
+
+table[_ngcontent-c1]   td[_ngcontent-c1], th[_ngcontent-c1] {
+  border: 1px solid #ddd; }
+
+tr[_ngcontent-c1]:nth-child(even) {
+  background-color: #f2f2f2; }
+
+tr[_ngcontent-c1]:hover {
+  background-color: #ddd; }
+
+th[_ngcontent-c1] {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #4CAF50;
+  color: white; }
+
+.btn-orange[_ngcontent-c1] {
+  background-color: #e96e50;
+  color: #fff !important;
+  display: inline;
+  padding: 6px 12px;
+  border-color: #e96e50; }
+
+.error-msg[_ngcontent-c1] {
+  margin: 1% 1%;
+  color: red;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 18px; }
+
+tr[_ngcontent-c1]   th[_ngcontent-c1] {
+  font-family: sans-serif;
+  font-weight: bold; }
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy93ZWF0aGVyL0M6XFxTdW1hXFxBbmd1bGFyXFxXZWF0aGVyQXBwL3NyY1xcYXBwXFxjb21wb25lbnRzXFx3ZWF0aGVyXFx3ZWF0aGVyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsaUJBQWdCO0VBQ2hCLGVBQWM7RUFDZCx3QkFBdUI7RUFDdkIsa0JBQWlCLEVBQ2xCOztBQUNEO0VBQ0UsZUFBYyxFQUNmOztBQUNEO0VBQ0UsZ0JBQWU7RUFDZixrQkFBaUI7RUFDakIsZUFBYztFQUNkLG1CQUFrQjtFQUNsQixpQkFBZ0IsRUFDakI7O0FBRUQ7RUFDRSxrQkFBaUI7RUFDakIsa0NBQWlDO0VBQ2pDLHNCQUFxQjtFQUNyQix1QkFBc0I7RUFDdEIsbUJBQWtCO0VBQ2xCLGlEQUErQztFQUMvQyx1RUFBc0UsRUFDdkU7O0FBRUQ7RUFDRSxtQkFBa0I7RUFDbEIsZUFBYztFQUNkLHdCQUF1QjtFQUN2QixrQkFBaUI7RUFDakIsb0JBQW1CLEVBQ3BCOztBQUNEO0VBQ0UsWUFBVztFQUNYLG1CQUFrQixFQUNuQjs7QUFHRDtFQUNFLHVCQUFzQixFQUN2Qjs7QUFFRDtFQUFtQiwwQkFBeUIsRUFBRzs7QUFFL0M7RUFBVSx1QkFBc0IsRUFBRzs7QUFFbkM7RUFDRSxrQkFBaUI7RUFDakIscUJBQW9CO0VBQ3BCLG1CQUFrQjtFQUNsQiwwQkFBeUI7RUFDekIsYUFBWSxFQUNiOztBQUVEO0VBQ0UsMEJBQXlCO0VBQ3pCLHVCQUFzQjtFQUN0QixnQkFBZTtFQUNmLGtCQUFpQjtFQUNqQixzQkFBcUIsRUFDdEI7O0FBQ0Q7RUFDRSxjQUFhO0VBQ2IsV0FBVTtFQUNWLHdCQUF1QjtFQUN2QixrQkFBaUI7RUFDakIsZ0JBQWUsRUFDaEI7O0FBQ0Q7RUFDRSx3QkFBdUI7RUFDdkIsa0JBQWlCLEVBQ2xCIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy93ZWF0aGVyL3dlYXRoZXIuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubWFpbi10aXRsZSB7XHJcbiAgdGV4dC1hbGlnbjogbGVmdDtcclxuICBjb2xvcjogIzUwNTA1MDtcclxuICBmb250LWZhbWlseTogc2Fucy1zZXJpZjtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxufVxyXG4uZm9ybS13aWR0aHtcclxuICBtYXJnaW46IDAgYXV0bztcclxufVxyXG4uZm9ybS1ncm91cCB7XHJcbiAgZGlzcGxheTogaW5saW5lO1xyXG4gIG1hcmdpbi1ib3R0b206IDElO1xyXG4gIG1hcmdpbi10b3A6IDElO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBtYXJnaW4tcmlnaHQ6IDElO1xyXG59XHJcblxyXG4uZm9ybS1jb250cm9sIHtcclxuICBwYWRkaW5nOiA2cHggMTJweDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmICFpbXBvcnRhbnQ7XHJcbiAgYm9yZGVyLWNvbG9yOiAjZTk2ZTUwO1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkICNjY2M7XHJcbiAgYm9yZGVyLXJhZGl1czogNHB4O1xyXG4gIGJveC1zaGFkb3c6IGluc2V0IDAgMXB4IDFweCByZ2JhKDAsIDAsIDAsIC4wNzUpO1xyXG4gIHRyYW5zaXRpb246IGJvcmRlci1jb2xvciAuMTVzIGVhc2UtaW4tb3V0LCBib3gtc2hhZG93IC4xNXMgZWFzZS1pbi1vdXQ7XHJcbn1cclxuXHJcbi50aXRsZSB7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGNvbG9yOiAjZTk2ZTUwO1xyXG4gIGZvbnQtZmFtaWx5OiBzYW5zLXNlcmlmO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gIG1hcmdpbi1ib3R0b206IDMwcHg7XHJcbn1cclxuLnRhYmxlLXN0eWxle1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG5cclxuXHJcbnRhYmxlIHRkLCB0aCB7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgI2RkZDtcclxufVxyXG5cclxudHI6bnRoLWNoaWxkKGV2ZW4pe2JhY2tncm91bmQtY29sb3I6ICNmMmYyZjI7fVxyXG5cclxudHI6aG92ZXIge2JhY2tncm91bmQtY29sb3I6ICNkZGQ7fVxyXG5cclxudGgge1xyXG4gIHBhZGRpbmctdG9wOiAxMnB4O1xyXG4gIHBhZGRpbmctYm90dG9tOiAxMnB4O1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjNENBRjUwO1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxufVxyXG5cclxuLmJ0bi1vcmFuZ2Uge1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICNlOTZlNTA7XHJcbiAgY29sb3I6ICNmZmYgIWltcG9ydGFudDtcclxuICBkaXNwbGF5OiBpbmxpbmU7XHJcbiAgcGFkZGluZzogNnB4IDEycHg7XHJcbiAgYm9yZGVyLWNvbG9yOiAjZTk2ZTUwO1xyXG59XHJcbi5lcnJvci1tc2d7XHJcbiAgbWFyZ2luOiAxJSAxJTtcclxuICBjb2xvcjogcmVkO1xyXG4gIGZvbnQtZmFtaWx5OiBzYW5zLXNlcmlmO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gIGZvbnQtc2l6ZTogMThweDtcclxufVxyXG50ciB0aHtcclxuICBmb250LWZhbWlseTogc2Fucy1zZXJpZjtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxufVxyXG4iXX0= */</style></head>
+<body>
+  <app-root _nghost-c0="" ng-version="7.1.4"><router-outlet _ngcontent-c0=""></router-outlet><app-weather _nghost-c1=""><div _ngcontent-c1=""><div _ngcontent-c1="" class="row"><div _ngcontent-c1="" class="col-md-6"><h1 _ngcontent-c1="" class="main-title">Weather forecast</h1><form _ngcontent-c1="" class="form-width ng-valid ng-dirty ng-touched" novalidate="" ng-reflect-form="[object Object]"><div _ngcontent-c1="" class="form-group"><input _ngcontent-c1="" aria-describedby="weatherLocation" class="form-control ng-valid ng-dirty ng-touched" formcontrolname="location" id="weatherLocation" placeholder="Your city name" type="text" ng-reflect-name="location"></div><button _ngcontent-c1="" class="btn-orange" type="submit">Search</button></form></div><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--bindings={
+  "ng-reflect-ng-if": "40"
+}--><div _ngcontent-c1=""><h2 _ngcontent-c1="" class="title">Weather forecasts in London</h2><table _ngcontent-c1="" class="table-style"><thead _ngcontent-c1=""><tr _ngcontent-c1=""><th _ngcontent-c1="">Time</th><th _ngcontent-c1="">Temperature</th><th _ngcontent-c1="">Pressure</th><th _ngcontent-c1="">Humidity</th><th _ngcontent-c1="">Weather Details</th><th _ngcontent-c1="">Wind Speed</th></tr></thead><tbody _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/11/2019 08:30 PM</p></td><td _ngcontent-c1="">29.4 °C</td><td _ngcontent-c1="">1,010.07</td><td _ngcontent-c1="">53</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">light rain</p></div></td><td _ngcontent-c1="">6.79 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/11/2019 11:30 PM</p></td><td _ngcontent-c1="">29.2 °C</td><td _ngcontent-c1="">1,010.88</td><td _ngcontent-c1="">60</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">light rain</p></div></td><td _ngcontent-c1="">5.83 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/12/2019 02:30 AM</p></td><td _ngcontent-c1="">28.9 °C</td><td _ngcontent-c1="">1,012.68</td><td _ngcontent-c1="">75</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">clear sky</p></div></td><td _ngcontent-c1="">4.58 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/12/2019 05:30 AM</p></td><td _ngcontent-c1="">28.7 °C</td><td _ngcontent-c1="">1,013.10</td><td _ngcontent-c1="">83</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">clear sky</p></div></td><td _ngcontent-c1="">2.56 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/12/2019 08:30 AM</p></td><td _ngcontent-c1="">28.6 °C</td><td _ngcontent-c1="">1,012.62</td><td _ngcontent-c1="">84</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">broken clouds</p></div></td><td _ngcontent-c1="">1.46 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/12/2019 11:30 AM</p></td><td _ngcontent-c1="">28.7 °C</td><td _ngcontent-c1="">1,013.44</td><td _ngcontent-c1="">80</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">broken clouds</p></div></td><td _ngcontent-c1="">1.47 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/12/2019 02:30 PM</p></td><td _ngcontent-c1="">29.0 °C</td><td _ngcontent-c1="">1,014.30</td><td _ngcontent-c1="">66</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">overcast clouds</p></div></td><td _ngcontent-c1="">2.59 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/12/2019 05:30 PM</p></td><td _ngcontent-c1="">29.1 °C</td><td _ngcontent-c1="">1,014.49</td><td _ngcontent-c1="">50</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">overcast clouds</p></div></td><td _ngcontent-c1="">3.84 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/12/2019 08:30 PM</p></td><td _ngcontent-c1="">29.2 °C</td><td _ngcontent-c1="">1,014.49</td><td _ngcontent-c1="">46</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">broken clouds</p></div></td><td _ngcontent-c1="">3.38 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/12/2019 11:30 PM</p></td><td _ngcontent-c1="">29.0 °C</td><td _ngcontent-c1="">1,015.35</td><td _ngcontent-c1="">58</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">light rain</p></div></td><td _ngcontent-c1="">3.48 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/13/2019 02:30 AM</p></td><td _ngcontent-c1="">28.7 °C</td><td _ngcontent-c1="">1,017.17</td><td _ngcontent-c1="">69</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">light rain</p></div></td><td _ngcontent-c1="">4.14 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/13/2019 05:30 AM</p></td><td _ngcontent-c1="">28.5 °C</td><td _ngcontent-c1="">1,017.65</td><td _ngcontent-c1="">76</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">light rain</p></div></td><td _ngcontent-c1="">3.73 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/13/2019 08:30 AM</p></td><td _ngcontent-c1="">28.4 °C</td><td _ngcontent-c1="">1,017.40</td><td _ngcontent-c1="">76</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">clear sky</p></div></td><td _ngcontent-c1="">3.27 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/13/2019 11:30 AM</p></td><td _ngcontent-c1="">28.4 °C</td><td _ngcontent-c1="">1,017.91</td><td _ngcontent-c1="">83</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">clear sky</p></div></td><td _ngcontent-c1="">4.17 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/13/2019 02:30 PM</p></td><td _ngcontent-c1="">28.8 °C</td><td _ngcontent-c1="">1,018.71</td><td _ngcontent-c1="">66</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">overcast clouds</p></div></td><td _ngcontent-c1="">4.00 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/13/2019 05:30 PM</p></td><td _ngcontent-c1="">29.1 °C</td><td _ngcontent-c1="">1,018.89</td><td _ngcontent-c1="">48</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">broken clouds</p></div></td><td _ngcontent-c1="">4.50 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/13/2019 08:30 PM</p></td><td _ngcontent-c1="">29.2 °C</td><td _ngcontent-c1="">1,018.48</td><td _ngcontent-c1="">48</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">light rain</p></div></td><td _ngcontent-c1="">5.41 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/13/2019 11:30 PM</p></td><td _ngcontent-c1="">28.9 °C</td><td _ngcontent-c1="">1,018.37</td><td _ngcontent-c1="">63</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">light rain</p></div></td><td _ngcontent-c1="">5.36 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/14/2019 02:30 AM</p></td><td _ngcontent-c1="">28.7 °C</td><td _ngcontent-c1="">1,018.85</td><td _ngcontent-c1="">72</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">light rain</p></div></td><td _ngcontent-c1="">3.18 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/14/2019 05:30 AM</p></td><td _ngcontent-c1="">28.8 °C</td><td _ngcontent-c1="">1,018.25</td><td _ngcontent-c1="">77</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">light rain</p></div></td><td _ngcontent-c1="">3.34 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/14/2019 08:30 AM</p></td><td _ngcontent-c1="">28.6 °C</td><td _ngcontent-c1="">1,017.23</td><td _ngcontent-c1="">84</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">broken clouds</p></div></td><td _ngcontent-c1="">2.71 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/14/2019 11:30 AM</p></td><td _ngcontent-c1="">28.7 °C</td><td _ngcontent-c1="">1,015.71</td><td _ngcontent-c1="">88</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">light rain</p></div></td><td _ngcontent-c1="">2.72 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/14/2019 02:30 PM</p></td><td _ngcontent-c1="">28.8 °C</td><td _ngcontent-c1="">1,014.22</td><td _ngcontent-c1="">81</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">light rain</p></div></td><td _ngcontent-c1="">5.22 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/14/2019 05:30 PM</p></td><td _ngcontent-c1="">28.8 °C</td><td _ngcontent-c1="">1,013.03</td><td _ngcontent-c1="">87</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">moderate rain</p></div></td><td _ngcontent-c1="">7.58 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/14/2019 08:30 PM</p></td><td _ngcontent-c1="">29.1 °C</td><td _ngcontent-c1="">1,010.99</td><td _ngcontent-c1="">73</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">light rain</p></div></td><td _ngcontent-c1="">7.31 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/14/2019 11:30 PM</p></td><td _ngcontent-c1="">29.0 °C</td><td _ngcontent-c1="">1,009.43</td><td _ngcontent-c1="">82</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">overcast clouds</p></div></td><td _ngcontent-c1="">5.19 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/15/2019 02:30 AM</p></td><td _ngcontent-c1="">29.0 °C</td><td _ngcontent-c1="">1,008.51</td><td _ngcontent-c1="">92</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">light rain</p></div></td><td _ngcontent-c1="">3.48 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/15/2019 05:30 AM</p></td><td _ngcontent-c1="">29.0 °C</td><td _ngcontent-c1="">1,007.27</td><td _ngcontent-c1="">87</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">light rain</p></div></td><td _ngcontent-c1="">4.50 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/15/2019 08:30 AM</p></td><td _ngcontent-c1="">28.9 °C</td><td _ngcontent-c1="">1,007.37</td><td _ngcontent-c1="">86</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">scattered clouds</p></div></td><td _ngcontent-c1="">5.23 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/15/2019 11:30 AM</p></td><td _ngcontent-c1="">28.8 °C</td><td _ngcontent-c1="">1,008.83</td><td _ngcontent-c1="">85</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">broken clouds</p></div></td><td _ngcontent-c1="">6.00 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/15/2019 02:30 PM</p></td><td _ngcontent-c1="">29.0 °C</td><td _ngcontent-c1="">1,010.47</td><td _ngcontent-c1="">68</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">overcast clouds</p></div></td><td _ngcontent-c1="">5.38 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/15/2019 05:30 PM</p></td><td _ngcontent-c1="">29.4 °C</td><td _ngcontent-c1="">1,010.80</td><td _ngcontent-c1="">53</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">light rain</p></div></td><td _ngcontent-c1="">5.40 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/15/2019 08:30 PM</p></td><td _ngcontent-c1="">29.3 °C</td><td _ngcontent-c1="">1,011.55</td><td _ngcontent-c1="">60</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">light rain</p></div></td><td _ngcontent-c1="">4.56 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/15/2019 11:30 PM</p></td><td _ngcontent-c1="">29.2 °C</td><td _ngcontent-c1="">1,012.74</td><td _ngcontent-c1="">64</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">light rain</p></div></td><td _ngcontent-c1="">4.80 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/16/2019 02:30 AM</p></td><td _ngcontent-c1="">28.8 °C</td><td _ngcontent-c1="">1,014.66</td><td _ngcontent-c1="">71</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">overcast clouds</p></div></td><td _ngcontent-c1="">2.89 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/16/2019 05:30 AM</p></td><td _ngcontent-c1="">28.7 °C</td><td _ngcontent-c1="">1,015.14</td><td _ngcontent-c1="">79</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">overcast clouds</p></div></td><td _ngcontent-c1="">2.41 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/16/2019 08:30 AM</p></td><td _ngcontent-c1="">28.6 °C</td><td _ngcontent-c1="">1,014.59</td><td _ngcontent-c1="">75</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">overcast clouds</p></div></td><td _ngcontent-c1="">2.41 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/16/2019 11:30 AM</p></td><td _ngcontent-c1="">28.6 °C</td><td _ngcontent-c1="">1,013.93</td><td _ngcontent-c1="">79</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">overcast clouds</p></div></td><td _ngcontent-c1="">2.79 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/16/2019 02:30 PM</p></td><td _ngcontent-c1="">28.8 °C</td><td _ngcontent-c1="">1,013.36</td><td _ngcontent-c1="">71</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">overcast clouds</p></div></td><td _ngcontent-c1="">3.77 m/s</td></tr><tr _ngcontent-c1=""><td _ngcontent-c1=""><p _ngcontent-c1="">08/16/2019 05:30 PM</p></td><td _ngcontent-c1="">28.9 °C</td><td _ngcontent-c1="">1,011.74</td><td _ngcontent-c1="">82</td><td _ngcontent-c1=""><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c1=""><p _ngcontent-c1="">light rain</p></div></td><td _ngcontent-c1="">4.80 m/s</td></tr></tbody></table></div></div></div></app-weather></app-root>
+<script type="text/javascript" src="./WeatherApp_files/runtime.js.download"></script><script type="text/javascript" src="./WeatherApp_files/polyfills.js.download"></script><script type="text/javascript" src="./WeatherApp_files/styles.js.download"></script><script type="text/javascript" src="./WeatherApp_files/vendor.js.download"></script><script type="text/javascript" src="./WeatherApp_files/main.js.download"></script>
+
+</body></html>

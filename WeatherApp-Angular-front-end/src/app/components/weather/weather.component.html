@@ -1,0 +1,49 @@
+<div>
+  <div class="row">
+    <div class="col-md-6"><h1 class="main-title">Weather forecast</h1>
+      <form class="form-width" [formGroup]="weatherSearchForm" (ngSubmit)="getWeatherDetails(weatherSearchForm.value)">
+        <div class="form-group">
+          <input
+            class="form-control"
+            type="text"
+            id="weatherLocation"
+            aria-describedby="weatherLocation"
+            placeholder="Your city name"
+            formControlName="location"
+          />
+        </div>
+        <button type="submit" class="btn-orange">Search</button>
+      </form>
+    </div>
+    <div class="error-msg" *ngIf="isError && dataSize == 0">{{error.error.message}}</div>
+    <div *ngIf="dataSize"><h2 class="title">Weather forecasts in {{city.name}}</h2>
+      <table class="table-style">
+        <thead>
+        <tr>
+          <th>Time</th>
+          <th>Temperature</th>
+          <th>Pressure</th>
+          <th>Humidity</th>
+          <th>Weather Details</th>
+          <th>Wind Speed</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let forecast of weatherList">
+          <td>
+            <p>{{forecast.dt * 1000 | date: 'MM/dd/yyyy hh:mm a'}}</p></td>
+          <td>{{ forecast.main.temp / 10 | number:'2.1-1'}} °C</td>
+          <td>{{ forecast.main.pressure | number:'4.2-2' }}</td>
+          <td>{{ forecast.main.humidity}}</td>
+          <td>
+            <div *ngFor="let weather of forecast.weather">
+              <p>{{weather.description}}</p>
+            </div>
+          </td>
+          <td>{{forecast.wind.speed | number:'1.2-2'}} m/s</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

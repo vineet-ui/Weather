@@ -1,0 +1,74 @@
+.main-title {
+  text-align: left;
+  color: #505050;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+.form-width{
+  margin: 0 auto;
+}
+.form-group {
+  display: inline;
+  margin-bottom: 1%;
+  margin-top: 1%;
+  text-align: center;
+  margin-right: 1%;
+}
+
+.form-control {
+  padding: 6px 12px;
+  background-color: #fff !important;
+  border-color: #e96e50;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.title {
+  text-align: center;
+  color: #e96e50;
+  font-family: sans-serif;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+.table-style{
+  width: 100%;
+  text-align: center;
+}
+
+
+table td, th {
+  border: 1px solid #ddd;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+
+tr:hover {background-color: #ddd;}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #4CAF50;
+  color: white;
+}
+
+.btn-orange {
+  background-color: #e96e50;
+  color: #fff !important;
+  display: inline;
+  padding: 6px 12px;
+  border-color: #e96e50;
+}
+.error-msg{
+  margin: 1% 1%;
+  color: red;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+}
+tr th{
+  font-family: sans-serif;
+  font-weight: bold;
+}
